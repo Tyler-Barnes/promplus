@@ -78,7 +78,7 @@ struct PRef{
     operator uint8_t() const             { return **this; }
     
     //Assignment/write members.
-    PRef &operator=( const PRef &ref ) { return *this = *ref; }
+    PRef &operator=( const PRef &ref )   { return *this = *ref; }
     PRef &operator=( uint8_t in )       {
         // return eeprom_write_byte( (uint8_t*) index, in ), *this;
         for (int i = 0; i < duplicates; i++) {
@@ -86,22 +86,22 @@ struct PRef{
         }
         return *this;
     }
-    PRef &operator +=( uint8_t in )     { return *this = **this + in; }
-    PRef &operator -=( uint8_t in )     { return *this = **this - in; }
-    PRef &operator *=( uint8_t in )     { return *this = **this * in; }
-    PRef &operator /=( uint8_t in )     { return *this = **this / in; }
-    PRef &operator ^=( uint8_t in )     { return *this = **this ^ in; }
-    PRef &operator %=( uint8_t in )     { return *this = **this % in; }
-    PRef &operator &=( uint8_t in )     { return *this = **this & in; }
-    PRef &operator |=( uint8_t in )     { return *this = **this | in; }
-    PRef &operator <<=( uint8_t in )    { return *this = **this << in; }
-    PRef &operator >>=( uint8_t in )    { return *this = **this >> in; }
+    PRef &operator +=( uint8_t in )      { return *this = **this + in; }
+    PRef &operator -=( uint8_t in )      { return *this = **this - in; }
+    PRef &operator *=( uint8_t in )      { return *this = **this * in; }
+    PRef &operator /=( uint8_t in )      { return *this = **this / in; }
+    PRef &operator ^=( uint8_t in )      { return *this = **this ^ in; }
+    PRef &operator %=( uint8_t in )      { return *this = **this % in; }
+    PRef &operator &=( uint8_t in )      { return *this = **this & in; }
+    PRef &operator |=( uint8_t in )      { return *this = **this | in; }
+    PRef &operator <<=( uint8_t in )     { return *this = **this << in; }
+    PRef &operator >>=( uint8_t in )     { return *this = **this >> in; }
     
-    PRef &update( uint8_t in )          { return  in != *this ? *this = in : *this; }
+    PRef &update( uint8_t in )           { return  in != *this ? *this = in : *this; }
     
     /** Prefix increment/decrement **/
-    PRef& operator++()                  { return *this += 1; }
-    PRef& operator--()                  { return *this -= 1; }
+    PRef& operator++()                   { return *this += 1; }
+    PRef& operator--()                   { return *this -= 1; }
     
     /** Postfix increment/decrement **/
     uint8_t operator++ (int){ 
@@ -130,18 +130,18 @@ struct PPtr{
     PPtr( const int index )
         : index( index )                {}
         
-    operator int() const               { return index; }
-    PPtr &operator=( int in )          { return index = in, *this; }
+    operator int() const                { return index; }
+    PPtr &operator=( int in )           { return index = in, *this; }
     
     //Iterator functionality.
-    bool operator!=( const PPtr &ptr ) { return index != ptr.index; }
-    PRef operator*()                   { return index; }
+    bool operator!=( const PPtr &ptr )  { return index != ptr.index; }
+    PRef operator*()                    { return index; }
     
     /** Prefix & Postfix increment/decrement **/
-    PPtr& operator++()                 { return ++index, *this; }
-    PPtr& operator--()                 { return --index, *this; }
-    PPtr operator++ (int)              { return index++; }
-    PPtr operator-- (int)              { return index--; }
+    PPtr& operator++()                  { return ++index, *this; }
+    PPtr& operator--()                  { return --index, *this; }
+    PPtr operator++ (int)               { return index++; }
+    PPtr operator-- (int)               { return index--; }
 
     int index; //Index of current EEPROM cell.
 };
@@ -156,14 +156,14 @@ struct PPtr{
 
 struct PROMClass{
     //Basic user access methods.
-    PRef operator[]( const int idx )    { return idx; }
+    PRef operator[]( const int idx )     { return idx; }
     uint8_t read( int idx )              { return PRef( idx ); }
     void write( int idx, uint8_t val )   { (PRef( idx )) = val; }
     void update( int idx, uint8_t val )  { PRef( idx ).update( val ); }
     
     //STL and C++11 iteration capability.
-    PPtr begin()                        { return 0x00; }
-    PPtr end()                          { return length(); } //Standards requires this to be the item after the last valid entry. The returned pointer is invalid.
+    PPtr begin()                         { return 0x00; }
+    PPtr end()                           { return length(); } //Standards requires this to be the item after the last valid entry. The returned pointer is invalid.
     uint16_t length()                    { return (E2END + 1) / 3;}
     
     //Functionality to 'get' and 'put' objects to and from EEPROM.
