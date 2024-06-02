@@ -154,13 +154,13 @@ This operator returns a reference to the EEPROM cell.
 uint8_t val;
 
 //Read first EEPROM cell.
-val = PROM[ 0 ];
+val = PROM[0];
 
 //Write first EEPROM cell.
-PROM[ 0 ] = val;
+PROM[0] = val;
 
 //Compare contents
-if( val == PROM[ 0 ] ){
+if(val == PROM[0]){
   //Do something...
 }
 ```
@@ -184,7 +184,7 @@ Its purpose is to mimic a typical byte of RAM, however its storage is the EEPROM
 This class has an overhead of two bytes, similar to storing a pointer to an EEPROM cell.
 
 ```C++
-PRef ref = PROM[ 10 ]; //Create a reference to 11th cell.
+PRef ref = PROM[10]; //Create a reference to 11th cell.
 
 ref = 4; //write to EEPROM cell.
 
