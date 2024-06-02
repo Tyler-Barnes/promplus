@@ -12,7 +12,7 @@ It is recommended to always enable Brown Out Detection (BOD) when you are workin
 
 Using this library in combination with BOD will yield rock solid EEPROM access in your next project. 
 
-The interface is the exact same as the core library, used to interact with the internal non-volatile storage found in AVR based Arduino boards, all while utilizing redundant writes to ensure data validity. This library will work on many AVR devices like ATtiny and ATmega chips.
+The interface is the exact same as the core library, all while utilizing redundant writes to ensure data validity. This library will work on many AVR devices like ATtiny and ATmega chips.
 
 ### **How to install it**
 The PROMPLUS library can be downloaded from the releases section of this repository. 
