@@ -6,7 +6,7 @@
 
 ### **What is the PROMPLUS library.**
 
-The PROMPLUS library is a fork of the standard EEPROM library bundled in the Arduino core. The core library has been modified to perform multiple writes and reads 
+The PROMPLUS library is a fork of the standard EEPROM library bundled in the Arduino core. The core library has been modified to perform multiple writes and reads making sure accessing the EEPROM results in valid data.  
 
 The PROMPLUS.h library provides an easy to use interface to interact with the internal non-volatile storage found in AVR based Arduino boards, all while utilizing redundant writes to ensure data validity. This library will work on many AVR devices like ATtiny and ATmega chips.
 
