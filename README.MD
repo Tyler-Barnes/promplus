@@ -6,7 +6,7 @@
 
 ### **What is the PROMPLUS library?**
 
-The PROMPLUS library is a fork of the standard EEPROM library bundled in the Arduino core. The core library has been modified to perform redundant writes and reads, making sure that accessing the EEPROM results in valid data.  
+The PROMPLUS.h library is a fork of the standard EEPROM.h library bundled in the Arduino core. The core library has been modified to perform redundant writes and reads, making sure that accessing the EEPROM results in valid data.  
 
 It is recommended to always enable Brown Out Detection (BOD) when you are working with the EEPROM on your AVR project. Enabling BOD on AVR chips can help ensure EEPROM does not get corrupted. While it is very effective, it is not fullproof on it's own. 
 
@@ -15,7 +15,7 @@ Using this library in combination with BOD will yield rock solid EEPROM access i
 The interface is the exact same as the core library, all while utilizing redundant writes to ensure data validity. This library will work on many AVR devices like ATtiny and ATmega chips.
 
 ### **How to install it**
-The PROMPLUS library can be downloaded from the releases section of this repository. 
+The PROMPLUS.h library can be downloaded from the releases section of this repository. 
 
 Once the .zip file has been downloaded, click on the `Sketch` tab within the Arduino IDE, click on `Include Library`, then click on `Add .ZIP Library...`. 
 
@@ -40,7 +40,7 @@ void loop(){
 
 The library provides a global variable named `PROM`, you use this variable to access the library functions. The methods provided in the EEPROM class are listed below.
 
-**By including the PROMPLUS library, you will automatically be including the standard EEPROM library as well, allowing access to the unmodified functionality of the original.**
+**By including the PROMPLUS.h library, you will automatically be including the standard EEPROM.h library as well, allowing access to the unmodified functionality of the original.**
 
 ### **Library functions**
 
@@ -66,11 +66,11 @@ This function does not return any value.
 
 ### **An important note on how indexing works**
 
-In the standard EEPROM library, the address you pass into the methods will be the actual address accessed wthin the EEPROM. 
+In the standard EEPROM.h library, the address you pass into the methods will be the actual address accessed wthin the EEPROM. 
 
 In this modified library, the address that you pass in will be multiplied by the number of redundancies that it is designed to write/read. 
 
-In `PROMPLUS`: 
+In PROMPLUS.h: 
 - The address `0` is equal to `0x00` in EEPROM.
 - The address `1` is equal to `0x03` in EEPROM.
 - etc...
@@ -97,7 +97,7 @@ This function returns a reference to the `object` passed in. It does not need to
 
 In the standard EEPROM.h library, the address you pass in is the actual address within the EEPROM. This in my opinion can lead to issues if you are expecting the indexing to act like an array and respect the width of the given datatype. 
 
-I have modified the addressing behavior to index based on the `sizeof()` the data type you pass in. 
+I have modified the addressing behavior to index based on the `sizeof()` the datatype you pass in. 
 
 I did this so that the indexing behaves just like indexing into an array of a given type. This means that you will not have to keep track of the `sizeof()` your datatypes when you want to iterate through the data as if it were an array. 
 
@@ -169,7 +169,7 @@ if(val == PROM[0]){
 
 This function returns an `unsigned int` containing the number of cells in the EEPROM. The value returned is divided by the number of duplicate writes that the library utilizes. 
 
-If the total number of byte sizes cells in the EEPROM is 1024, then the PROM.length() call will yield the result 341, since the default number of redundant writes in the library is 3. Note that the value returned is the result after integer math, and any float remainders are truncated. 
+If the total number of byte sizes cells in the EEPROM is 1024, then the PROM.length() call will yield the result 341, since the default number of redundant writes in the library is 3. Note that the value returned is the result of integer math, and any float remainders are truncated. 
 
 ---
 
