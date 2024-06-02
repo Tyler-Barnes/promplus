@@ -8,6 +8,7 @@ void eraseEEPROM() {
   }
 }
 
+// print a hex dump of the EEPROM memory
 #define bytesPerLine 16
 void hexDump(int lines) {
   char buff[100];
@@ -29,7 +30,7 @@ void singleWrite() {
   Serial.println("Lets first look at a single write action.");
   Serial.println("A single action results in 3 duplicates.");
   PROM.write(0x00, 0x55);
-  hexDump(2);             // hex dump one line to console
+  hexDump(2);
   Serial.println();
 }
 
@@ -39,7 +40,7 @@ void multipleWrites() {
   PROM.write(0x00, 0x55);
   PROM.write(0x01, 0x77);
   PROM.write(0x02, 0x99);
-  hexDump(2);             // hex dump one line to console
+  hexDump(2);
   Serial.println();
 }
 
