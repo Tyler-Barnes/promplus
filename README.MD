@@ -6,9 +6,13 @@
 
 ### **What is the PROMPLUS library?**
 
-The PROMPLUS library is a fork of the standard EEPROM library bundled in the Arduino core. The core library has been modified to perform multiple writes and reads making sure accessing the EEPROM results in valid data.  
+The PROMPLUS library is a fork of the standard EEPROM library bundled in the Arduino core. The core library has been modified to perform redundant writes and reads, making sure that accessing the EEPROM results in valid data.  
 
-The PROMPLUS.h library provides an easy to use interface to interact with the internal non-volatile storage found in AVR based Arduino boards, all while utilizing redundant writes to ensure data validity. This library will work on many AVR devices like ATtiny and ATmega chips.
+It is recommended to always enable Brown Out Detection (BOD) when you are working with the EEPROM on your AVR project. Enabling BOD on AVR chips can help ensure EEPROM does not get corrupted. While it is very effective, it is not fullproof on it's own. 
+
+Using this library in combination with BOD will yield rock solid EEPROM access in your next project. 
+
+The interface is the exact same as the core library, used to interact with the internal non-volatile storage found in AVR based Arduino boards, all while utilizing redundant writes to ensure data validity. This library will work on many AVR devices like ATtiny and ATmega chips.
 
 ### **How to install it**
 The PROMPLUS library can be downloaded from the releases section of this repository. 
