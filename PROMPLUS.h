@@ -79,7 +79,7 @@ struct PRef{
     
     //Assignment/write members.
     PRef &operator=( const PRef &ref )   { return *this = *ref; }
-    PRef &operator=( uint8_t in )       {
+    PRef &operator=( uint8_t in )        {
         // return eeprom_write_byte( (uint8_t*) index, in ), *this;
         for (int i = 0; i < duplicates; i++) {
             eeprom_write_byte((uint8_t*)((index * duplicates) + i), in);
