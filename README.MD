@@ -126,11 +126,6 @@ The resulting data for either of the above examples will equal:
 ```c++
 {0, 1000, 2000, 3000, 4000}
 ```
-```bash
-0x0000: 00,00,00,00,00,00,E8,E8,E8,03,03,03,D0,D0,D0,07
-0x0010: 07,07,B8,B8,B8,0B,0B,0B,A0,A0,A0,0F,0F,0F,FF,FF
-0x0020: FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF
-```
 
 In this example: 
 - The index of `0` points to the address `0x00` in the EEPROM. 
@@ -140,7 +135,14 @@ This is because each write will write three times for redundancy, and the dataty
 
 `2 * 3 = 6.`
 
-the only other thing I would add to the above example is a base address since you may not always want to start indexing from address `0x00` in the EEPROM. 
+The memory dump of the `PROM.put()` example looks like: 
+```bash
+0x0000: 00,00,00,00,00,00,E8,E8,E8,03,03,03,D0,D0,D0,07
+0x0010: 07,07,B8,B8,B8,0B,0B,0B,A0,A0,A0,0F,0F,0F,FF,FF
+0x0020: FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF
+```
+
+The only other thing I would add to the above example is a base address since you may not always want to start indexing from address `0x00` in the EEPROM. 
 
 ```c++
 
@@ -149,6 +151,13 @@ uint16_t baseAddress = 0x10; // base address can be anything you want
 for (int i = 0; i < 5; i++) {
   PROM.put(baseAddress + i, number * i);
 }
+```
+
+```bash
+0x0000: FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF
+0x0010: 00,00,00,00,00,00,E8,E8,E8,03,03,03,D0,D0,D0,07
+0x0020: 07,07,B8,B8,B8,0B,0B,0B,A0,A0,A0,0F,0F,0F,FF,FF
+0x0030: FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF
 ```
 
 #### **Subscript operator: `PROM[address]`** 
