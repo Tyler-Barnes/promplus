@@ -55,16 +55,16 @@ void readValues() {
   Serial.println(value2, HEX);
   Serial.print("value3: 0x");
   Serial.println(value3, HEX);
-  Serial.println(); 
+  Serial.println();
 }
 
-void corruptTheData(){
+void corruptTheData() {
   Serial.println("Lets manually corrupt the data.");
   EEPROM[0] = 0x00;
   EEPROM[3] = 0x00;
   EEPROM[6] = 0x00;
-  hexDump(2); 
-  Serial.println(); 
+  hexDump(2);
+  Serial.println();
 }
 
 void setup() {
@@ -72,9 +72,9 @@ void setup() {
   eraseEEPROM();          // Make sure eeprom is cleared before example starts
   singleWrite();
   multipleWrites();
-  readValues(); 
-  corruptTheData(); 
-  readValues(); 
+  readValues();
+  corruptTheData();
+  readValues();
 }
 
 void loop() {
