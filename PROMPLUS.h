@@ -72,7 +72,7 @@ struct PRef{
                 idx = i;
             }
         }
-        return eeprom_read_byte((uint8_t*)((index * duplicates) + idx));
+        return array[idx];
 
     }
     operator uint8_t() const             { return **this; }
