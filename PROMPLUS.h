@@ -164,7 +164,7 @@ struct PROMClass{
     //STL and C++11 iteration capability.
     PPtr begin()                         { return 0x00; }
     PPtr end()                           { return length(); } //Standards requires this to be the item after the last valid entry. The returned pointer is invalid.
-    uint16_t length()                    { return (E2END + 1) / 3;}
+    uint16_t length()                    { return (E2END + 1) / PROM_duplicates;}
     
     //Functionality to 'get' and 'put' objects to and from EEPROM.
     template< typename T > T &get( int idx, T &t ){

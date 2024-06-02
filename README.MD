@@ -126,7 +126,7 @@ In this example:
 - The index of `0` points to the address `0x00` in the EEPROM. 
 - The index of `1` points to the address `0x06` in the EEPROM. 
 
-This is because each write will write three times for redundancy, and the data type being written is 2 bytes wide. 
+This is because each write will write three times for redundancy, and the datatype being written is 2 bytes wide. 
 
 `2 * 3 = 6.`
 
