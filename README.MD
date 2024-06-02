@@ -66,9 +66,9 @@ In the standard EEPROM library, the address you pass into the methods will be th
 
 In this modified library, the address that you pass in will be multiplied by the number of redundancies that it is designed to write/read. 
 
-So in `PROMPLUS`: 
-- The address `0` is equal to `0` in EEPROM.
-- The address `1` is equal to `3` in EEPROM.
+In `PROMPLUS`: 
+- The address `0` is equal to `0x00` in EEPROM.
+- The address `1` is equal to `0x03` in EEPROM.
 - etc...
 
 If for some reason you want to increase the number of redundant writes that the library performs, you can do so. Please see the note at the bottom of this file regarding `PROM.duplicates`.  
@@ -119,8 +119,8 @@ for (int i = 0; i < 5; i++) {
 ```
 
 In this example: 
-- The index of 0 points to the address `0x00` in the EEPROM. 
-- The index of 1 points to the address `0x06` in the EEPROM. 
+- The index of `0` points to the address `0x00` in the EEPROM. 
+- The index of `1` points to the address `0x06` in the EEPROM. 
 
 This is because each write will write three times for redundancy, and the data type being written is 2 bytes wide. 
 
