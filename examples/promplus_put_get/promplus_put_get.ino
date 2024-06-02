@@ -1,6 +1,5 @@
 #include <PROMPLUS.h>
 
-
 // make sure there is nothing in EEPROM before example executes
 void eraseEEPROM() {
   for (int i = 0; i < 100; i++) {
