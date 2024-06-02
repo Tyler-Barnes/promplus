@@ -106,7 +106,7 @@ for (int i = 0; i < 5; i++) {
 uint16_t number = 1000; 
 
 for (int i = 0; i < 5; i++) {
-  PROM.put(0x00 + i, number * i)
+  PROM.put(0x00 + i, number * i);
 }
 ```
 
@@ -150,7 +150,7 @@ If the total number of byte sizes cells in the EEPROM is 1024, then the PROM.len
 
 ### **Advanced features**
 
-This library uses a component based approach to provide its functionality. This means you can also use these components to design a customized approach. Two background classes are available for use: `EERef` & `EEPtr`.
+This library uses a component based approach to provide its functionality. This means you can also use these components to design a customized approach. Two background classes are available for use: `PRef` & `PPtr`.
 
 #### **`PRef` class**
 
@@ -168,7 +168,7 @@ unsigned char val = ref; //Read referenced cell.
 
 #### **`PPtr` class**
 
-This object is a bidirectional pointer to EEPROM cells represented by `EERef` objects.
+This object is a bidirectional pointer to EEPROM cells represented by `PRef` objects.
 Just like a normal pointer type, this type can be dereferenced and repositioned using 
 increment/decrement operators.
 
