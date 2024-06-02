@@ -126,6 +126,11 @@ The resulting data for either of the above examples will equal:
 ```c++
 {0, 1000, 2000, 3000, 4000}
 ```
+```bash
+0x0000: 00,00,00,00,00,00,E8,E8,E8,03,03,03,D0,D0,D0,07
+0x0010: 07,07,B8,B8,B8,0B,0B,0B,A0,A0,A0,0F,0F,0F,FF,FF
+0x0020: FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF
+```
 
 In this example: 
 - The index of `0` points to the address `0x00` in the EEPROM. 
