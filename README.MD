@@ -52,6 +52,17 @@ This function is similar to `PROM.write()` however this method will only write d
 
 This function does not return any value.
 
+#### **An inportant note on how indexing works**
+
+In the standard EEPROM library, the address you pass into the methods will be the actual address whichin the EEPROM that it will access. 
+
+In this modified library, the address that you pass in will be multiplied by the number of redundancies that it is designed to write/read. 
+
+So in `PROMPLUS`: 
+- The address `0` is equal to `0` in EEPROM.
+- The address `1` is equal to `3` in EEPROM.
+- etc...
+
 #### **`PROM.get( address, object )`** 
 
 This function will retrieve any object from the EEPROM.
