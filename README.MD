@@ -52,7 +52,7 @@ This function is similar to `PROM.write()` however this method will only write d
 
 This function does not return any value.
 
-#### **An inportant note on how indexing works**
+### **An inportant note on how indexing works**
 
 In the standard EEPROM library, the address you pass into the methods will be the actual address whichin the EEPROM that it will access. 
 
@@ -79,7 +79,7 @@ This function uses the _update_ method to write its data, and therefore only rew
 
 This function returns a reference to the `object` passed in. It does not need to be used and is only returned for convenience.
 
-#### **An inportant note on the `PROM.put()` and `PROM.get()` methods**
+### **An inportant note on the `PROM.put()` and `PROM.get()` methods**
 
 In the standard EEPROM library, the address you pass in is the actual address whithin the EEPROM. This in my opinion can lead to issues if you are expecting the indexing to act like an array and respect the width of the given data type. 
 
