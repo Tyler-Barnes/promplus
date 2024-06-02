@@ -1,3 +1,5 @@
+// This is the serial print out of the basic_read_write example sketch.
+
 Lets first look at a single put action.
 A single action results in 3 duplicates.
 0x0000: D2,D2,D2,04,04,04,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF
