@@ -146,10 +146,12 @@ for (int i = 0; i < 5; i++) {
 This operator allows using the identifier `PROM` like an array.  
 EEPROM cells can be read _and_ **_written_** directly using this method.
 
+The only valid datatypes for use with this operator are `unsigned char`, or `uint8_t`. 
+
 This operator returns a reference to the EEPROM cell.
 
 ```c++
-unsigned char val;
+uint8_t val;
 
 //Read first EEPROM cell.
 val = PROM[ 0 ];
