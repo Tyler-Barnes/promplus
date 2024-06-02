@@ -13,7 +13,7 @@ The PROMPLUS.h library provides an easy to use interface to interact with the in
 ### **How to install it**
 The PROMPLUS library can be downloaded from the releases section of this repository. 
 
-Once the .zip file has been downloaded, click on the 'Sketch' tab within the Arduino IDE, click on 'Include Library', then click on 'Add .ZIP Library...'. 
+Once the .zip file has been downloaded, click on the `Sketch` tab within the Arduino IDE, click on `Include Library`, then click on `Add .ZIP Library...`. 
 
 The resulting dialog will allow you to locate the library within your computer's directories, and open it. 
 
