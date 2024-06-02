@@ -4,7 +4,7 @@
 
 **Modified by:** _Tyler Barnes_. 
 
-### **What is the PROMPROM library.**
+### **What is the PROMPLUS library.**
 
 The PROMPLUS library is a fork of the standard EEPROM library bundled in the Arduino core. the core library has been modified to perform multiple writes and reads 
 
