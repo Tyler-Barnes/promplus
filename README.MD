@@ -54,7 +54,7 @@ This function does not return any value.
 
 ### **An important note on how indexing works**
 
-In the standard EEPROM library, the address you pass into the methods will be the actual address whichin the EEPROM that it will access. 
+In the standard EEPROM library, the address you pass into the methods will be the actual address accessed wthin the EEPROM. 
 
 In this modified library, the address that you pass in will be multiplied by the number of redundancies that it is designed to write/read. 
 
@@ -62,6 +62,8 @@ So in `PROMPLUS`:
 - The address `0` is equal to `0` in EEPROM.
 - The address `1` is equal to `3` in EEPROM.
 - etc...
+
+If for some reason you want to increase the number of redundant writes that the library performs, you can do so. Please see the note at the bottom of this file regarding `PROM.duplicates`.  
 
 #### **`PROM.get( address, object )`** 
 
@@ -194,7 +196,7 @@ Used with `begin()` to provide custom iteration.
 
 #### **`PROM.duplicates`**
 
-If for whatever reason you would like to increase the number of redundant writes, then you can change the member variable `PROM.duplicates`. Note that you need at least three for the read function to properly be able to compare each stored value and determine which value is valid. 
+If for whatever reason you would like to increase the number of redundant writes, then you can change the member variable `PROM.duplicates`. Note that you need at least three for the `PROM.read()` method to properly be able to compare each stored value and determine which value is valid. 
 
 ```
 PROM.duplicates = 4; 
