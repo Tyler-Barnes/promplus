@@ -25,7 +25,7 @@ The resulting dialog will allow you to locate the library within your computer's
 ### **How to use it**
 To add its functionality to your sketch you'll need to reference the library header file. You do this by adding an include directive to the top of your sketch.
 
-```Arduino
+```c++
 #include <PROMPLUS.h>
 
 void setup(){
