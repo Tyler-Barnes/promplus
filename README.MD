@@ -221,6 +221,6 @@ Used with `begin()` to provide custom iteration.
 
 If for whatever reason you would like to increase the number of redundant writes, then you can change the member variable `PROM.duplicates`. Note that you need at least three for the `PROM.read()` method to properly be able to compare each stored value and determine which value is valid. The default value is `3`. 
 
-```
+```c++
 PROM.duplicates = 4; 
 ```
