@@ -95,13 +95,13 @@ This function returns a reference to the `object` passed in. It does not need to
 
 ### **An important note on the `PROM.put()` and `PROM.get()` methods**
 
-In the standard EEPROM library, the address you pass in is the actual address whithin the EEPROM. This in my opinion can lead to issues if you are expecting the indexing to act like an array and respect the width of the given data type. 
+In the standard EEPROM.h library, the address you pass in is the actual address whithin the EEPROM. This in my opinion can lead to issues if you are expecting the indexing to act like an array and respect the width of the given datatype. 
 
-I have modified the address field to index based on the `sizeof()` the inputted data type. 
+I have modified the addressing behavior to index based on the `sizeof()` the data type you pass in. 
 
-I did this so that the indexing behaves just like indexing into an array of any type. This means that you will not have to keep track of the `sizeof()` your datatypes when you want to iterate through the data as if it where an array. 
+I did this so that the indexing behaves just like indexing into an array of a given type. This means that you will not have to keep track of the `sizeof()` your datatypes when you want to iterate through the data as if it were an array. 
 
-However, just like an array, you will need to keep the data type consistant throughout to keep the index aligned.   
+However, just like an array, you will need to keep the datatype consistant throughout to keep the index aligned.   
 
 You can expect these two examples to index the exact same way. 
 ```c++
@@ -118,7 +118,7 @@ for (int i = 0; i < 5; i++) {
 uint16_t number = 1000; 
 
 for (int i = 0; i < 5; i++) {
-  PROM.put(0x00 + i, number * i);
+  PROM.put(i, number * i);
 }
 ```
 
@@ -129,6 +129,17 @@ In this example:
 This is because each write will write three times for redundancy, and the data type being written is 2 bytes wide. 
 
 `2 * 3 = 6.`
+
+the only other thing I would add to the above example is a base address since you may not always want to start indexing from address `0x00` in the EEPROM. 
+
+```c++
+
+uint16_t number = 1000; 
+uint16_t baseAddress = 0x10; // base address can be anything you want
+for (int i = 0; i < 5; i++) {
+  PROM.put(baseAddress + i, number * i);
+}
+```
 
 #### **Subscript operator: `PROM[address]`** 
 
