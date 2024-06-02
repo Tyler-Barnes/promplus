@@ -95,7 +95,7 @@ This function returns a reference to the `object` passed in. It does not need to
 
 ### **An important note on the `PROM.put()` and `PROM.get()` methods**
 
-In the standard EEPROM.h library, the address you pass in is the actual address whithin the EEPROM. This in my opinion can lead to issues if you are expecting the indexing to act like an array and respect the width of the given datatype. 
+In the standard EEPROM.h library, the address you pass in is the actual address within the EEPROM. This in my opinion can lead to issues if you are expecting the indexing to act like an array and respect the width of the given datatype. 
 
 I have modified the addressing behavior to index based on the `sizeof()` the data type you pass in. 
 
