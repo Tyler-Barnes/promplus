@@ -105,7 +105,7 @@ However, just like an array, you will need to keep the datatype consistant throu
 
 You can expect these two examples to index the exact same way. 
 ```c++
-uint16_t array[5] = {1000, 2000, 3000, 4000}; 
+uint16_t array[5]; 
 
 uint16_t number = 1000; 
 
@@ -120,6 +120,11 @@ uint16_t number = 1000;
 for (int i = 0; i < 5; i++) {
   PROM.put(i, number * i);
 }
+```
+
+The resulting data for either of the above examples will equal:
+```c++
+{0, 1000, 2000, 3000, 4000}
 ```
 
 In this example: 
