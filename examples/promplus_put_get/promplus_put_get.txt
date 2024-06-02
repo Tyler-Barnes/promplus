@@ -1,4 +1,4 @@
-// This is the serial print out of the basic_read_write example sketch.
+// This is the serial print out of the put_get example sketch.
 
 Lets first look at a single put action.
 A single action results in 3 duplicates.
