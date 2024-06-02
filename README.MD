@@ -147,9 +147,9 @@ The only other thing I would add to the above example is a base address since yo
 ```c++
 
 uint16_t number = 1000; 
-uint16_t baseAddress = 0x10; // base address can be anything you want
+
 for (int i = 0; i < 5; i++) {
-  PROM.put(baseAddress + i, number * i);
+  PROM.put(0x10 + i, number * i); // base address can be anything you want
 }
 ```
 
