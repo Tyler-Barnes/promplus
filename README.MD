@@ -10,8 +10,16 @@ The PROMPLUS library is a fork of the standard EEPROM library bundled in the Ard
 
 The PROMPLUS.h library provides an easy to use interface to interact with the internal non-volatile storage found in AVR based Arduino boards, all while utilizing redundant writes to ensure data validity. This library will work on many AVR devices like ATtiny and ATmega chips.
 
+### **How to install it**
+The PROMPLUS library can be downloaded from the releases section of this repository. 
+
+Once the .zip file has been downloaded, click on the 'Sketch' tab within the Arduino IDE, click on 'Include Library', then click on 'Add .ZIP Library...'. 
+
+The resulting dialog will allow you to locate the library within your computer's directories, and open it. 
+
+
 ### **How to use it**
-The EEPROM library is included in your IDE download. To add its functionality to your sketch you'll need to reference the library header file. You do this by adding an include directive to the top of your sketch.
+To add its functionality to your sketch you'll need to reference the library header file. You do this by adding an include directive to the top of your sketch.
 
 ```Arduino
 #include <PROMPLUS.h>
