@@ -15,7 +15,12 @@ Using this library in combination with BOD will yield rock solid EEPROM access i
 The interface is the exact same as the core library, all while utilizing redundant writes to ensure data validity. This library will work on many AVR devices like ATtiny and ATmega chips.
 
 ### **How to install it**
-The PROMPLUS.h library can be downloaded from the releases section of this repository. 
+
+To install the library, click on the `Sketch` tab within the Arduino IDE, click on `Include Library`, then click on `Manage Libraries...`. 
+
+Once the library browser launches, type in `promplus` and click `Install`. 
+
+Alternatively, the PROMPLUS.h library can be downloaded from the releases section of the [github repository](https://github.com/Tyler-Barnes/promplus). 
 
 Once the .zip file has been downloaded, click on the `Sketch` tab within the Arduino IDE, click on `Include Library`, then click on `Add .ZIP Library...`. 
 
