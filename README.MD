@@ -45,7 +45,7 @@ void loop(){
 
 ```
 
-The library provides a global variable named `PROM`, you use this variable to access the library functions. The methods provided in the EEPROM class are listed below.
+The library provides a global variable named `PROM`, you use this variable to access the library functions. The methods provided in the PROM class are listed below.
 
 **By including the PROMPLUS.h library, you will automatically be including the standard EEPROM.h library as well, allowing access to the unmodified functionality of the original.**
 
