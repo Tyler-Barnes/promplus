@@ -182,7 +182,6 @@ struct PROMClass{
     }
 
     // Configuration methods
-
     void duplicates(uint8_t value)      {PROM_duplicates = value;}
 };
 
