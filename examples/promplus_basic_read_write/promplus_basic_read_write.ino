@@ -45,9 +45,10 @@ void multipleWrites() {
 
 void readValues() {
   Serial.println("Reading each value gives the expected results.");
-  uint8_t value1 = PROM.read(0);
-  uint8_t value2 = PROM.read(1);
-  uint8_t value3 = PROM.read(2);
+  uint8_t 
+    value1 = PROM.read(0),
+    value2 = PROM.read(1),
+    value3 = PROM.read(2);
   Serial.print("value1: 0x");
   Serial.println(value1, HEX);
   Serial.print("value2: 0x");
