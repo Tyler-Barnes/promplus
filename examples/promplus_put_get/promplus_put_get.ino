@@ -37,9 +37,10 @@ void singleWrite() {
 void multipleWrites() {
   Serial.println("Next look at multiple puts.");
   Serial.println("Duplicate values have been stored for each.");
-  uint16_t value1 = 1234;
-  uint16_t value2 = 2345;
-  uint16_t value3 = 3456;
+  uint16_t
+    value1 = 1234,
+    value2 = 2345,
+    value3 = 3456;
   PROM.put(0x00, value1);
   PROM.put(0x01, value2);
   PROM.put(0x02, value3);
@@ -48,9 +49,10 @@ void multipleWrites() {
 
 void readValues() {
   Serial.println("Getting each value gives the expected results.");
-  uint16_t value1;
-  uint16_t value2;
-  uint16_t value3;
+  uint16_t 
+    value1,
+    value2,
+    value3;
   PROM.get(0, value1);
   PROM.get(1, value2);
   PROM.get(2, value3);
