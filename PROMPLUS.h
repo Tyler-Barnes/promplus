@@ -2,7 +2,7 @@
   ###########################################################
   # This is a fork of the original library.                 #
   # I changed it to read/write 3 times in order to ensure   #
-  # that unexpected power loss has not currupted data.      #
+  # data validity, even if power loss has currupted data.   #
   ###########################################################
   
   EEPROM.h - EEPROM library
