@@ -19,7 +19,7 @@ The interface is the exact same as the core library, all while utilizing redunda
 #### **Method 1** _(Recommended)_
 To install the library, click on the `Sketch` tab within the Arduino IDE, click on `Include Library`, then click on `Manage Libraries...`. 
 
-Once the library browser launches, type in `promplus` into the search field, then click on the library's `Install` button. 
+Once the library browser launches, type `promplus` into the search field, then click on the library's `Install` button. 
 
 #### **Method 2**
 Alternatively, the PROMPLUS.h library can be downloaded from the releases section of the [github repository](https://github.com/Tyler-Barnes/promplus). 
