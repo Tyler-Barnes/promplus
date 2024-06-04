@@ -167,15 +167,15 @@ struct PROMClass{
     uint16_t length()                    { return (E2END + 1) / PROM_duplicates;}
     
     //Functionality to 'get' and 'put' objects to and from EEPROM.
-    template< typename T > T &get( int idx, T &t ){
-        PPtr e = idx * sizeof(T);
+    template< typename T > T &get( int idx, T &t , int base){
+        PPtr e = (base * PROM_duplicates) + (idx * sizeof(T));
         uint8_t *ptr = (uint8_t*) &t;
         for( int count = sizeof(T) ; count ; --count, ++e )  *ptr++ = *e;
         return t;
     }
     
-    template< typename T > const T &put( int idx, const T &t ){
-        PPtr e = idx * sizeof(T);
+    template< typename T > const T &put( int idx, const T &t , int base){
+        PPtr e = (base * PROM_duplicates) + (idx * sizeof(T));
         const uint8_t *ptr = (const uint8_t*) &t;
         for( int count = sizeof(T) ; count ; --count, ++e )  (*e).update( *ptr++ );
         return t;
