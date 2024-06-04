@@ -97,7 +97,7 @@ Two parameters are required to call this function, and a third is optional.
 
 - The first argument is an `int` and controls the index. It will increment through memory at the width denoted by the datatype that you pass into argument 2. This allows you to use this index to iterate through data as if it was an array of the same datatype. 
 - The second argument is the data object you'd like to write. It can be datatypes larger than or equal to `uint8_t` like `uint16_t`, `double`, etc. 
-- The third and optional argument is an `int` containing the base address that the method will start from. The default value is `0`.  This `address` argument follows the same rules that the address of `PROM.write()` and `PROM.read()` follow; it is multiplied by the number of redundancies that the library writes to the EEPROM. So, the address pointed to by `PROM.read(2)`, is the same address pointed to by `PROM.get(0, val, 2)`.  
+- The third and optional argument is an `int` containing the base address that the method will start from. The default value is `0`.  This `address` argument follows the same rules that the address of `PROM.write()` and `PROM.read()` follow; it is multiplied by the number of redundancies that the library writes to the EEPROM. So, the address pointed to by `PROM.write(2)`, is the same address pointed to by `PROM.get(0, val, 2)`.  
 
 This function uses the _update_ method to write its data, and therefore only rewrites changed cells.
 
@@ -110,13 +110,13 @@ The parameter list is the same as `PROM.put()`.
 
 This function returns a reference to the `object` passed in. It does not need to be used and is only returned for convenience.
 
-### **An important note on the `PROM.put()` and `PROM.get()` methods**
+### **An important note on indexing with the `PROM.put()` and `PROM.get()` methods**
 
-In the standard EEPROM.h library, the address you pass in is the actual address within the EEPROM. This in my opinion can lead to issues if you are expecting the indexing to act like an array and respect the width of the given datatype. 
+In the standard EEPROM.h library, the index you pass in is the actual address within the EEPROM. This in my opinion can lead to issues if you are expecting the indexing to act like an array and respect the width of the given datatype. 
 
-I have modified the addressing behavior to index based on the `sizeof()` the datatype you pass in. 
+I have modified the behavior to index based on the `sizeof()` the datatype you pass in. 
 
-I did this so that the indexing behaves just like indexing into an array of a given type. This means that you will not have to keep track of the `sizeof()` your datatypes when you want to iterate through the data as if it were an array. 
+I did this so that it behaves just like indexing into an array of a given type. This means that you will not have to keep track of the `sizeof()` your datatypes when you want to iterate through the data as if it were an array. 
 
 However, just like an array, you will need to keep the datatype consistant throughout to keep the index aligned.   
 
@@ -159,7 +159,7 @@ The memory dump of the `PROM.put()` example looks like:
 0x0020: FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF
 ```
 
-The only other thing I would add to the above example is a base address since you may not always want to start indexing from address `0x00` in the EEPROM. 
+The only other thing I would add to the above example is a base address since you may not always want to start indexing from address `0x00` in the EEPROM. We will add the address we want to start from to the third argument field.
 
 ```c++
 
