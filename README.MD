@@ -58,7 +58,7 @@ Its only parameter is an `int` which should be set to the address you wish to re
 
 The function returns an `unsigned char` containing the value read.
 
-It should be noted that the address passed into the method and the actual address the data resides may differ as a result of the redundant write/reads in the modified library. The address value you pass into the method will in actuality be multiplied by the number of duplicates that the library writes. Since by default the library writes 3 total bytes for each requested write, the following 2 bytes after the modified address should, in theory, contain the exact same data. Passing `1` into the address argument will be accessing address locations `3`, `4`, and `5` on the EEPROM.  
+It should be noted that the address passed into the method and the actual address the data resides may differ as a result of the redundant write/reads in the modified library. The address value you pass into the method will in actuality be multiplied by the number of duplicates that the library writes. Since by default the library writes 3 total bytes for each requested write, the following 2 bytes after the modified address should, in theory, contain the exact same data. Passing `1` into the address argument will access address locations `3`, `4`, and `5` on the EEPROM.  
 
 When reading, each redundant value gets compared, and the value that repeats the most in memory is returned as valid data. 
 
