@@ -110,7 +110,7 @@ The parameter list is the same as `PROM.put()`.
 
 This function returns a reference to the `object` passed in. It does not need to be used and is only returned for convenience.
 
-### **An important note on indexing with the `PROM.put()` and `PROM.get()` methods**
+### **An important note about indexing with the `PROM.put()` and `PROM.get()` methods**
 
 In the standard EEPROM.h library, the index you pass in is the actual address within the EEPROM. This in my opinion can lead to issues if you are expecting the indexing to act like an array and respect the width of the given datatype. 
 
