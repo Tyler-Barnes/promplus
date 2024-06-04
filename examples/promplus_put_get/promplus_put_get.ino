@@ -38,9 +38,9 @@ void multipleWrites() {
   Serial.println("Next look at multiple puts.");
   Serial.println("Duplicate values have been stored for each.");
   uint16_t
-    value1 = 1234,
-    value2 = 2345,
-    value3 = 3456;
+  value1 = 1234,
+  value2 = 2345,
+  value3 = 3456;
   PROM.put(0x00, value1);
   PROM.put(0x01, value2);
   PROM.put(0x02, value3);
@@ -49,10 +49,10 @@ void multipleWrites() {
 
 void readValues() {
   Serial.println("Getting each value gives the expected results.");
-  uint16_t 
-    value1,
-    value2,
-    value3;
+  uint16_t
+  value1,
+  value2,
+  value3;
   PROM.get(0, value1);
   PROM.get(1, value2);
   PROM.get(2, value3);
@@ -77,16 +77,35 @@ void corruptTheData() {
 }
 
 void setBaseAddress() {
-  eraseEEPROM(); 
-  Serial.println("Lets move the starting location where we write the uint16_t data");
-    uint16_t
-    value1 = 1234,
-    value2 = 2345,
-    value3 = 3456;
+  eraseEEPROM();
+  Serial.println("Lets move the starting location where we write the uint16_t data.");
+  uint16_t
+  value1 = 1234,
+  value2 = 2345,
+  value3 = 3456;
   PROM.put(0x00, value1, 0x01);
   PROM.put(0x01, value2, 0x01);
   PROM.put(0x02, value3, 0x01);
-  hexDump(2); 
+  hexDump(2);
+}
+
+void readFromMovedAddress() {
+  Serial.println("We can iterate through just like a uint16_t array.");
+  uint16_t values[3];
+  uint8_t arraySize = sizeof(values)/sizeof(values[0]); 
+  for (int i = 0; i < arraySize; i++) {
+    PROM.get(i, values[i], 0x01);
+  }
+  Serial.print("values = {"); 
+  for (int i = 0; i < arraySize; i++) {
+    Serial.print(values[i]); 
+
+    if (i != arraySize - 1) {
+      Serial.print(", "); 
+    }
+  }
+  Serial.print("}");
+  Serial.println();  
 }
 
 void setup() {
@@ -97,7 +116,8 @@ void setup() {
   readValues();
   corruptTheData();
   readValues();
-  setBaseAddress(); 
+  setBaseAddress();
+  readFromMovedAddress();
 }
 
 void loop() {
