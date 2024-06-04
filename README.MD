@@ -97,7 +97,7 @@ Two parameters are required to call this function, and a third is optional.
 
 - The first argument is an `int` and controls the index. It will increment through memory at the width denoted by the datatype that you pass into argument 2. This allows you to use this index to iterate through data as if it was an array of the same datatype. 
 - The second argument is the data object you'd like to write. It can be datatypes larger than or equal to `uint8_t` like `uint16_t`, `double`, etc. 
-- The third and optional argument is an `int` containing the base address that the method will start from. The default value is `0`.  This `address` argument follows the same rules that the address of `PROM.write()` and `PROM.read()` follow; it is multiplied by the number of redundancies that the library writes to the EEPROM. So, the address pointed to by `PROM.read(2)`, is the same address pointed to by `PROM.get(0, val, 2)`.  
+- The third and optional argument is an `int` containing the base address that the method will start from. The default value is `0`.  This `address` argument follows the same rules that the address of `PROM.write()` and `PROM.read()` follow; it is multiplied by the number of redundancies that the library writes to the EEPROM. So, the address accessed by `PROM.read(2)`, is the same address accessed by `PROM.get(0, val, 2)`.  
 
 This function uses the _update_ method to write its data, and therefore only rewrites changed cells.
 
