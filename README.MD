@@ -178,7 +178,7 @@ for (int i = 0; i < 5; i++) {
 
 #### **Subscript operator: `PROM[address]`** 
 
-This operator allows using the identifier `PROM` like an array.  
+This operator allows using the identifier `PROM` like an `unsigned char` array.  
 EEPROM cells can be read _and_ **_written_** directly using this method.
 
 The only valid datatypes for use with this operator are `unsigned char`, or `uint8_t`. 
