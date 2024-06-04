@@ -24,3 +24,10 @@ value1: 1234
 value2: 2345
 value3: 3456
 
+Lets move the starting location where we write the uint16_t data.
+0x0000: FF,FF,FF,D2,D2,D2,04,04,04,29,29,29,09,09,09,80
+0x0010: 80,80,0D,0D,0D,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF
+
+We can iterate through just like a uint16_t array.
+{1234, 2345, 3456}
+
