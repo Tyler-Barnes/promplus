@@ -88,19 +88,25 @@ In PROMPLUS.h:
 
 If for some reason you want to increase the number of redundant writes that the library performs, you can do so. Please see the note at the bottom of this file regarding `PROM.duplicates`.  
 
-#### **`PROM.get( address, object )`** 
 
-This function will retrieve any object from the EEPROM.
-Two parameters are needed to call this function. The first is an `int` containing the address that is to be written, and the second is the object you would like to read.
+#### **`PROM.put( index, object, <address> )`** 
+
+This function will write any object to the EEPROM.
+
+Two parameters are required to call this function, and a third is optional. 
+
+- The first argument is an `int` and controls the index. It will increment through memory at the width denoted by the datatype that you pass into argument 2. This allows you to use this index to iterate through data as if it was an array of the same datatype. 
+- The second argument is the data object you'd like to write. It can be datatypes larger than or equal to `uint8_t` like `uint16_t`, `double`, etc. 
+- The third and optional argument is an `int` containing the base address that the method will start from. The default value is `0`.  This `address` argument follows the same rules that the address of `PROM.write()` and `PROM.read()` follow; it is multiplied by the number of redundancies that the library writes to the EEPROM. So, the address pointed to by `PROM.read(2)`, is the same address pointed to by `PROM.put(0, val, 2)`.  
+
+This function uses the _update_ method to write its data, and therefore only rewrites changed cells.
 
 This function returns a reference to the `object` passed in. It does not need to be used and is only returned for convenience.
 
-#### **`PROM.put( address, object )`** 
+#### **`PROM.get( index, object, <address> )`** 
 
-This function will write any object to the EEPROM.
-Two parameters are needed to call this function. The first is an `int` containing the address that is to be written, and the second is the object you would like to write.
-
-This function uses the _update_ method to write its data, and therefore only rewrites changed cells.
+This function will retrieve any object from the EEPROM.
+The parameter list is the same as `PROM.put()`.
 
 This function returns a reference to the `object` passed in. It does not need to be used and is only returned for convenience.
 
@@ -160,15 +166,14 @@ The only other thing I would add to the above example is a base address since yo
 uint16_t number = 1000; 
 
 for (int i = 0; i < 5; i++) {
-  PROM.put(0x10 + i, number * i); // base address can be anything you want
+  PROM.put(i, number * i, 0x01); // base address can be anything you want
 }
 ```
 
 ```bash
-0x0000: FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF
-0x0010: 00,00,00,00,00,00,E8,E8,E8,03,03,03,D0,D0,D0,07
-0x0020: 07,07,B8,B8,B8,0B,0B,0B,A0,A0,A0,0F,0F,0F,FF,FF
-0x0030: FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF
+0x0000: FF,FF,FF,00,00,00,00,00,00,E8,E8,E8,03,03,03,D0
+0x0010: D0,D0,07,07,07,B8,B8,B8,0B,0B,0B,A0,A0,A0,0F,0F
+0x0020: 0F,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF,FF
 ```
 
 #### **Subscript operator: `PROM[address]`** 
