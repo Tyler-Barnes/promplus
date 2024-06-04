@@ -76,6 +76,19 @@ void corruptTheData() {
   hexDump(2);
 }
 
+void setBaseAddress() {
+  eraseEEPROM(); 
+  Serial.println("Lets move the starting location where we write the uint16_t data");
+    uint16_t
+    value1 = 1234,
+    value2 = 2345,
+    value3 = 3456;
+  PROM.put(0x00, value1, 0x01);
+  PROM.put(0x01, value2, 0x01);
+  PROM.put(0x02, value3, 0x01);
+  hexDump(2); 
+}
+
 void setup() {
   Serial.begin(9600);     // print example outputs to monitor
   eraseEEPROM();          // Make sure eeprom is cleared before example starts
@@ -84,6 +97,7 @@ void setup() {
   readValues();
   corruptTheData();
   readValues();
+  setBaseAddress(); 
 }
 
 void loop() {
