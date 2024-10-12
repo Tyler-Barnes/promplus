@@ -54,7 +54,7 @@ struct PRef{
         uint8_t
                 winner = 0,
                 idx = 0;
-        uint8_t *array[duplicates]; 
+        uint8_t array[duplicates]; 
 
         for (uint8_t i = 0; i < duplicates; i++) {
             array[i] = eeprom_read_byte((uint8_t*)((index * duplicates) + i));
